@@ -1,0 +1,42 @@
+image: codeminer42/ci-ruby:2.7
+
+services:
+  - postgres:12
+
+variables:
+  RAILS_ENV: test
+  DATABASE_URL: "postgresql://postgres:password@localhost:5432/site_builder_test"
+  POSTGRES_PASSWORD: password
+  POSTGRES_USER: postgres
+  POSTGRES_DB: site_builder_test
+
+cache:
+  paths:
+    - .gems/
+    - node_modules/
+
+stages:
+  - test
+
+before_script:
+  - gem install bundler -v2.1.4
+  - bundle config set path '.gems'
+  - bundle install
+  - bundle exec rails db:create
+  - bundle exec rails db:schema:load
+  - bundle exec rails db:test:prepare
+
+unit:
+  stage: test
+  script:
+    - bundle exec rspec -fd --exclude-pattern="spec/{acceptance,request,requests,feature,features,integration,integrations}/**/*_spec.rb"
+
+integration:
+  stage: test
+  script:
+    - bundle exec rspec -fd --pattern="spec/{acceptance,request,requests,feature,features,integration,integrations}/**/*_spec.rb"
+
+rubocop:
+  stage: test
+  script:
+    - bundle exec rubocop -ffu
