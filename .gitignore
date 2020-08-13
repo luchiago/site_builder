@@ -28,3 +28,6 @@
 
 # env file
 .env
+
+# coverage
+coverage/
