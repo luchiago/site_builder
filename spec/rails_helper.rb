@@ -13,6 +13,7 @@ SimpleCov.start 'rails' do
   add_group 'Jobs', 'app/jobs'
   add_group 'Models', 'app/models'
   add_group 'Services', 'app/services'
+  add_group 'Validators', 'app/validators'
 
   # Unchanged files/directories
   # Remove the filter if any of them are used and changed
@@ -42,4 +43,6 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+  config.include SchemaErrorsHelper, type: :validator
+  config.include FactoryBot::Syntax::Methods
 end
