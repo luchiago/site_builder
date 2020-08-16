@@ -27,6 +27,9 @@ AllCops:
 ### Layout
 Layout/DotPosition:
   EnforcedStyle: trailing
+Layout/LineLength:
+  Exclude:
+    - app/validators/**
 
 ### Metrics
 Metrics/BlockLength:
