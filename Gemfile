@@ -15,6 +15,10 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 # Json Schema validation
 gem 'dry-schema', '~> 1.5', '>= 1.5.2'
+# Views
+gem 'cells-erb', '~> 0.1.0'
+gem 'cells-rails', '~> 0.1.3'
+gem 'trailblazer-cells', '~> 0.0.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
