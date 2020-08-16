@@ -25,6 +25,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Load environment variables from .env file
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+  # RSpec progress formater
+  gem 'fuubar', '~> 2.5'
   # Creating fakes objets and seed the database
   gem 'factory_bot_rails', '~> 6.1'
   gem 'faker', '~> 2.13'
