@@ -13,6 +13,7 @@ SimpleCov.start 'rails' do
   add_group 'Jobs', 'app/jobs'
   add_group 'Models', 'app/models'
   add_group 'Services', 'app/services'
+  add_group 'Structs', 'app/structs'
   add_group 'Validators', 'app/validators'
 
   # Unchanged files/directories
