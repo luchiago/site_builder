@@ -18,6 +18,7 @@ gem 'dry-schema', '~> 1.5', '>= 1.5.2'
 # Views
 gem 'cells-erb', '~> 0.1.0'
 gem 'cells-rails', '~> 0.1.3'
+gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 gem 'trailblazer-cells', '~> 0.0.3'
 
 group :development, :test do
