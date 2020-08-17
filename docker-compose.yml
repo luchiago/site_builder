@@ -12,6 +12,7 @@ services:
       - RAILS_ENV=${RAILS_ENV:-development}
     depends_on:
       - postgres
+      - redis
     tmpfs:
       - /tmp
     env_file:
@@ -20,6 +21,7 @@ services:
     tty: true
     command: >
       bash -c "wait-for-it -t 30 postgres:5432 &&
+               "wait-for-it -t 30 redis:6379 &&"
                rm -f tmp/pids/server.pid &&
                bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
@@ -34,6 +36,23 @@ services:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
     ports:
       - 5432:5432
+
+    redis:
+      image: redis:6.0
+      ports:
+        - "6379:6379"
+
+  sidekiq:
+    depends_on:
+      - 'postgres'
+      - 'redis'
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+
 
 volumes:
   postgres:
