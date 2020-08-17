@@ -16,6 +16,7 @@ SimpleCov.start 'rails' do
   add_group 'Services', 'app/services'
   add_group 'Structs', 'app/structs'
   add_group 'Validators', 'app/validators'
+  add_group 'Workers', 'app/workers'
 
   # Unchanged files/directories
   # Remove the filter if any of them are used and changed
