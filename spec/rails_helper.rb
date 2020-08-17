@@ -8,6 +8,7 @@ require 'shoulda/matchers'
 ENV['RAILS_ENV'] ||= 'test'
 
 SimpleCov.start 'rails' do
+  add_group 'Cells', 'app/cells'
   add_group 'Controllers', 'app/controllers'
   add_group 'Helpers', 'app/helpers'
   add_group 'Jobs', 'app/jobs'

@@ -33,6 +33,8 @@ group :development, :test do
   # Pry to debug the application
   gem 'pry', '~> 0.13.1'
   gem 'pry-byebug', '~> 3.9'
+  # Testing cells
+  gem 'rspec-cells', '~> 0.3.5'
 end
 
 group :development do
