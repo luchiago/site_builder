@@ -15,6 +15,8 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 # Json Schema validation
 gem 'dry-schema', '~> 1.5', '>= 1.5.2'
+# Background jobs
+gem 'sidekiq', '~> 6.1', '>= 6.1.1'
 # Views
 gem 'cells-erb', '~> 0.1.0'
 gem 'cells-rails', '~> 0.1.3'
@@ -53,6 +55,7 @@ end
 group :test do
   # RSpec for testing purposes
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'rspec-sidekiq', '~> 3.1'
   # Simplecov for coverage
   gem 'simplecov', '~> 0.18.5'
   # Matchers
