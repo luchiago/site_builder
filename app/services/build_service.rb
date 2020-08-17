@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class BuildService
-  def initialize(widgets, site)
+  def initialize(widgets, site_id)
     @widgets = widgets
-    @site = site
+    @site_id = site_id
     @doc = Nokogiri::HTML(base_html)
   end
 
@@ -37,8 +37,9 @@ class BuildService
 
   def save_build!
     ActiveRecord::Base.transaction do
-      build = Build.create(html_build: @doc.to_html, site: @site)
-      @site.update(current_build: build)
+      site = Site.find_by(id: @site_id)
+      build = Build.create(html_build: @doc.to_html, site: site)
+      site.update(current_build: build)
       build
     end
   end

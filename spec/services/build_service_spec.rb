@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe BuildService, type: :service do
   describe '#perform' do
-    subject(:service) { described_class.new(widgets, site).build_html }
+    subject(:service) { described_class.new(widgets, site.id).build_html }
 
     let(:site) { Site.create }
     let(:basic_info) { BasicInfo.new(build(:basic_info)) }
-    let(:text_content) { TextContent.new(build(:text_content)) }
+    let(:widget) { TextContent.new(build(:text_content)) }
 
-    let(:widgets) { [basic_info, text_content] }
+    let(:widgets) { [basic_info, widget] }
 
     context 'with the widgets' do
       it { is_expected.to be_instance_of(Build) }
@@ -39,9 +39,9 @@ RSpec.describe BuildService, type: :service do
         expect(build.html_build).to include(basic_info.title)
       end
 
-      it 'add text content html to build' do
+      it 'add widget html to build' do
         build = service
-        expect(build.html_build).to include(text_content.title)
+        expect(build.html_build).to include(widget.title)
       end
     end
   end
