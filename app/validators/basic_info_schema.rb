@@ -2,7 +2,7 @@
 
 class BasicInfoSchema < Dry::Schema::Params
   HEX_REGEX = /#([a-f0-9]{3}){1,2}\b/i.freeze
-  ICON_URL_REGEX = %r{http://api\.thenounproject\.com/icon/\d+}.freeze
+  ICON_URL_REGEX = %r{https://static\.thenounproject\.com/svg/[\d+]*\.svg\?[\w+|=&~-]*}.freeze
 
   define do
     required(:title).filled(:string)

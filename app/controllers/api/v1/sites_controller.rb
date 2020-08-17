@@ -18,12 +18,12 @@ module Api
       private
 
       def site_params
-        params.require(:site).permit!
+        params.require(:site).permit!.to_h
       end
 
       def validate_widgets
         json_validator = SiteParams.new
-        @validation = json_validator.call(site_params.to_h)
+        @validation = json_validator.call(site_params)
       end
     end
   end

@@ -15,18 +15,27 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 # Json Schema validation
 gem 'dry-schema', '~> 1.5', '>= 1.5.2'
+# Views
+gem 'cells-erb', '~> 0.1.0'
+gem 'cells-rails', '~> 0.1.3'
+gem 'nokogiri', '~> 1.6', '>= 1.6.8'
+gem 'trailblazer-cells', '~> 0.0.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Load environment variables from .env file
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+  # RSpec progress formater
+  gem 'fuubar', '~> 2.5'
   # Creating fakes objets and seed the database
   gem 'factory_bot_rails', '~> 6.1'
   gem 'faker', '~> 2.13'
   # Pry to debug the application
   gem 'pry', '~> 0.13.1'
   gem 'pry-byebug', '~> 3.9'
+  # Testing cells
+  gem 'rspec-cells', '~> 0.3.5'
 end
 
 group :development do
