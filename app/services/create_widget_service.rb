@@ -2,7 +2,7 @@
 
 class CreateWidgetService
   def initialize(site_params)
-    @site_params = site_params
+    @site_params = HashWithIndifferentAccess.new(site_params)
     @widgets = []
   end
 
@@ -18,7 +18,7 @@ class CreateWidgetService
   def create_widgets
     @site_params.each_with_object(@widgets) do |(key, value), acc|
       struct_class = Struct.const_get(key.to_s.classify)
-      associate_to_struct(struct_class, value, acc) unless key == :basic_info
+      associate_to_struct(struct_class, value, acc) unless key == 'basic_info'
     end
   end
 
@@ -27,7 +27,7 @@ class CreateWidgetService
   end
 
   def add_basic_info!
-    basic_info = create_struct(BasicInfo, @site_params[:basic_info])
+    basic_info = create_struct(BasicInfo, @site_params.fetch(:basic_info))
     @widgets.unshift(basic_info)
   end
 
