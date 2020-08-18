@@ -5,7 +5,7 @@ require 'spec_helper'
 require 'simplecov'
 require 'shoulda/matchers'
 
-ENV['RAILS_ENV'] ||= 'test'
+ENV['RAILS_ENV'] = 'test'
 
 SimpleCov.start 'rails' do
   add_group 'Cells', 'app/cells'
@@ -31,6 +31,7 @@ require File.expand_path('../config/environment', __dir__)
 
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+require 'fakeredis/rspec'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 
@@ -48,4 +49,5 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include SchemaErrorsHelper, type: :validator
   config.include FactoryBot::Syntax::Methods
+  config.include RequestHelpers, type: :request
 end

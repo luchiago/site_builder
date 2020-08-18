@@ -39,6 +39,8 @@ Metrics/BlockLength:
 ### Rails
 Rails/IndexWith:
   Enabled: false
+Rails/OutputSafety:
+  Enabled: false
 
 ### RSpec
 RSpec/ExampleLength:
@@ -48,4 +50,6 @@ RSpec/NestedGroups:
 
 ### Style
 Style/Documentation:
+  Enabled: false
+Style/GuardClause:
   Enabled: false

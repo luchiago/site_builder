@@ -5,9 +5,9 @@ require 'rails_helper'
 RSpec.describe BuildWorker, type: :worker do
   describe '#perform' do
     let(:worker) { subject }
-    let(:site) { Site.new }
+    let(:site_id) { Site.create.id }
     let(:create_widgets) { CreateWidgetService.new(params) }
-    let(:build_service) { BuildService.new(widgets, site) }
+    let(:build_service) { BuildService.new(widgets, site_id) }
     let(:basic_info) { FactoryBot.build(:basic_info) }
     let(:text_content) { FactoryBot.build(:text_content) }
     let(:params) { { basic_info: basic_info, text_content: [text_content] } }
@@ -19,7 +19,7 @@ RSpec.describe BuildWorker, type: :worker do
         allow(create_widgets).to receive(:perform).and_return(widgets)
         allow(BuildService).to receive(:new).and_return(build_service)
         allow(build_service).to receive(:build_html)
-        worker.perform(site, params)
+        worker.perform(site_id, params)
       end
 
       it 'uses site params to create widgets' do
@@ -31,7 +31,7 @@ RSpec.describe BuildWorker, type: :worker do
       end
 
       it 'uses widgets to build the template' do
-        expect(BuildService).to have_received(:new).with(widgets, site)
+        expect(BuildService).to have_received(:new).with(widgets, site_id)
       end
 
       it 'build the template' do

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class VideoSchema < Dry::Schema::Params
-  YOUTUBE_URL_REGEX = %r{^((?:https?:)?//)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(/(?:[\w\-]+\?v=|embed/|v/)?)([\w\-]+)(\S+)?$}.freeze
-  VIMEO_URL_REGEX = %r{(?:https?:)?://(www\.)?vimeo.com/(?:channels/(?:\w+/)?|groups/([^/]*)/videos/|)(\d+)(?:|/\?)}.freeze
+  YOUTUBE_URL_REGEX = %r{^(https|http)://(?:www.)?youtube.com/embed/[A-z0-9]+}.freeze
+  VIMEO_URL_REGEX = %r{(https|http)://(player.vimeo.com)/([\w/]+)([?].*)?}.freeze
 
   define do
     required(:title).filled(:string)

@@ -17,6 +17,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'dry-schema', '~> 1.5', '>= 1.5.2'
 # Background jobs
 gem 'sidekiq', '~> 6.1', '>= 6.1.1'
+gem 'sidekiq-status', '~> 1.1', '>= 1.1.4'
 # Views
 gem 'cells-erb', '~> 0.1.0'
 gem 'cells-rails', '~> 0.1.3'
@@ -53,6 +54,7 @@ group :development do
 end
 
 group :test do
+  gem 'fakeredis', '~> 0.8.0'
   # RSpec for testing purposes
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   gem 'rspec-sidekiq', '~> 3.1'

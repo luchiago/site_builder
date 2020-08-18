@@ -11,6 +11,8 @@ WORKDIR /app
 
 ADD . /app
 
+RUN bundle install --jobs 4 --retry 3
+
 EXPOSE 3000
 
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
