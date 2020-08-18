@@ -39,7 +39,7 @@ RSpec.describe VideoSchema, type: :validator do
     end
 
     context 'with url video param invalid' do
-      let(:params) { build(:video, url: 'hts://w.youtube.com/wh?v=DFYRQ_zQ-gk') }
+      let(:params) { build(:video, url: 'https://youtube.com/watch?v=DFYRQ_zQ-gk') }
 
       it 'returns unsuccessful status' do
         expect(validation).not_to be_success

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  VIDEO_URLS = ['https://www.youtube.com/watch?v=DFYRQ_zQ-gk', 'https://vimeo.com/62092214'].freeze
+  VIDEO_URLS = ['https://www.youtube.com/embed/Kj_dINCC-cY', 'https://vimeo.com/62092214'].freeze
 
   factory :video, class: Hash do
     defaults = {
