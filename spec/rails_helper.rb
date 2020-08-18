@@ -5,7 +5,7 @@ require 'spec_helper'
 require 'simplecov'
 require 'shoulda/matchers'
 
-ENV['RAILS_ENV'] ||= 'test'
+ENV['RAILS_ENV'] = 'test'
 
 SimpleCov.start 'rails' do
   add_group 'Cells', 'app/cells'
@@ -48,4 +48,5 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include SchemaErrorsHelper, type: :validator
   config.include FactoryBot::Syntax::Methods
+  config.include RequestHelpers, type: :request
 end
