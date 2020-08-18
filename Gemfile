@@ -54,6 +54,7 @@ group :development do
 end
 
 group :test do
+  gem 'fakeredis', '~> 0.8.0'
   # RSpec for testing purposes
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   gem 'rspec-sidekiq', '~> 3.1'
