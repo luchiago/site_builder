@@ -12,4 +12,8 @@ Sidekiq.configure_server do |config|
 
   # accepts :expiration (optional)
   Sidekiq::Status.configure_client_middleware config, expiration: 30.minutes
+
+  config.logger.level = Logger::DEBUG
 end
+
+Rails.logger = Sidekiq.logger
