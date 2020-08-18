@@ -4,5 +4,12 @@ set -xe
 
 cp .env.sample .env
 
+echo "Building the app"
 docker-compose build
+echo "Setup the project"
 docker-compose run --rm app bin/setup
+echo "Enable caching in development"
+docker-compose run --rm app bundle exec rails dev:cache
+echo "Testing the app"
+docker-compose run --rm app bundle exec rspec
+echo "Everything is done, you can up the application and see running in localhost:3000/"
