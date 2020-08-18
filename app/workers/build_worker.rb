@@ -2,6 +2,7 @@
 
 class BuildWorker
   include Sidekiq::Worker
+  include Sidekiq::Status::Worker
   sidekiq_options retry: false
 
   def perform(site_id, params)

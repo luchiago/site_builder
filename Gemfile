@@ -17,6 +17,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'dry-schema', '~> 1.5', '>= 1.5.2'
 # Background jobs
 gem 'sidekiq', '~> 6.1', '>= 6.1.1'
+gem 'sidekiq-status', '~> 1.1', '>= 1.1.4'
 # Views
 gem 'cells-erb', '~> 0.1.0'
 gem 'cells-rails', '~> 0.1.3'
