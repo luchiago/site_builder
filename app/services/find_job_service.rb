@@ -8,7 +8,7 @@ class FindJobService
   end
 
   def perform
-    return @job_hash unless @data
+    return @job_hash if @data.empty?
 
     set_message!
     add_site
