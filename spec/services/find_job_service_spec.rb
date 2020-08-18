@@ -16,7 +16,7 @@ RSpec.describe FindJobService, type: :service do
 
     context 'with an inexistent job' do
       before do
-        allow(Sidekiq::Status).to receive(:get_all).and_return(nil)
+        allow(Sidekiq::Status).to receive(:get_all).and_return({})
       end
 
       it { is_expected.to be_empty }
