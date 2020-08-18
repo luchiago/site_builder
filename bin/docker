@@ -12,4 +12,6 @@ echo "Enable caching in development"
 docker-compose run --rm app bundle exec rails dev:cache
 echo "Testing the app"
 docker-compose run --rm app bundle exec rspec
-echo "Everything is done, you can up the application and see running in localhost:3000/"
+echo "Remove docker containers"
+docker-compose down
+echo "Everything is done, you can up with docker-compose up the application and see running in localhost:3000/"
